@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "PWall"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,10 +29,13 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
-        cell.nameLabel.text = "Name: \(DataService.shared.student[indexPath.row].name!)"
-        cell.ageLabel.text = "Age: \(String(DataService.shared.student[indexPath.row].age))"
-        cell.imageVew.image = DataService.shared.student[indexPath.row].image as? UIImage
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//        cell.nameLabel.text = "Name: \(DataService.shared.student[indexPath.row].name!)"
+//        cell.ageLabel.text = "Age: \(String(DataService.shared.student[indexPath.row].age))"
+//        cell.imageVew.image = DataService.shared.student[indexPath.row].image as? UIImage
+        cell.textLabel?.text = "Name: \(DataService.shared.student[indexPath.row].name!)"
+        cell.detailTextLabel?.text = "Age: \(String(DataService.shared.student[indexPath.row].age))"
+        cell.imageView?.image = DataService.shared.student[indexPath.row].image as? UIImage
         return cell
     }
     

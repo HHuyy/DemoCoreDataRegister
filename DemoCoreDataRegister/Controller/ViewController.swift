@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if let studentData = object {
             nameTextField.text = studentData.name
             ageTextField.text = String(studentData.age)
